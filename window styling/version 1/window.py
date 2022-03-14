@@ -10,7 +10,7 @@ def main():
     root = tk.Tk()
 
     root.overrideredirect(True)  # turns off title bar, geometry
-    root.geometry('+200+200') # set new geometry
+    root.geometry('+200+200') # places the window
 
     top_Bar = tk.Frame(root, bg=colorTop, relief='raised', bd=0)
     top_Bar.pack(expand=1, fill='x')
@@ -26,9 +26,11 @@ def main():
     title = tk.Label(top_Bar, text='test window', bg=colorTop, fg="#ffffff")
     title.pack(side="left", padx=25)
 
-    # new main canvas
+    # new main canvas - size of the new container
     canvas = tk.Canvas(root, width=500, height=500, bg='blue')
     canvas.pack(expand=1, fill='both')
+
+
 
     # bind the top bar so you can move it
     top_Bar.bind('<B1-Motion>', lambda event, arg=root: move_window(event, arg))
