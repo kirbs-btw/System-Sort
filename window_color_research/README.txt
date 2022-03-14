@@ -1,13 +1,15 @@
-Styling a the head of a window:
+Styling the head of a window:
 
 In tkinter...
 there are three methods i found:
 
 1. The seemingly easy one!
 
+    ---
     root = tk.Tk()
     root.configure(bg='black') <--
     root.mainloop()
+    ---
 
     so you should be able to just configure the root and change the
     color of your window right?
@@ -15,7 +17,8 @@ there are three methods i found:
     It changes the background of the window but not the head :)
     (at least for me, i have seen some people where it worked)
 
-    thanks to Dev Prakash Sharma - https://www.tutorialspoint.com/changing-the-background-color-of-a-tkinter-window-using-colorchooser-module
+    thanks to Dev Prakash Sharma
+    https://www.tutorialspoint.com/changing-the-background-color-of-a-tkinter-window-using-colorchooser-module
 
 2. The pretty weird version:
 
@@ -46,14 +49,16 @@ there are three methods i found:
                          ct.sizeof(value))
 
     ---
-    thanks to Konstantin Ehmann from Stack overflow <3 - https://stackoverflow.com/users/17942637/konstantin-ehmann
+    thanks to Konstantin Ehmann from Stack overflow <3
+    https://stackoverflow.com/users/17942637/konstantin-ehmann
+
     but it did only somewhat work...
 
     it changes the color to black but only if you make the window small and then open it up again
     and only after this it changed :)
 
 3. The totally dumb solution - i'm gonna use it :) :
-    you can go and just delete the whole bar and do a new one :)
+    you can go and just delete the whole bar and create a new one :)
     it's a bit 'glitchy' but it's okay
 
     code excerpt:
@@ -90,9 +95,11 @@ there are three methods i found:
 
     ---
 
-    thanks to atlasologist on stack overflow <3- https://stackoverflow.com/users/3275008/atlasologist
+    thanks to atlasologist on stack overflow <3
+    https://stackoverflow.com/users/3275008/atlasologist
 
     you can find the code to my rage in this folder <3
+
     Version 1: tk_version.py
     Version 2: windows_override.py
     Version 3: new_bar.py
