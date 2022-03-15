@@ -1,13 +1,16 @@
 import tkinter as tk
 
-colorTop = '#5584c3'
+colorTop = '#0f0f0f'
 
 
 def move_window(event, root):
     root.geometry('+{0}+{1}'.format(event.x_root, event.y_root))
+    # print(f"x{event.x_root}         y{event.y_root}")
 
 def main():
     root = tk.Tk()
+
+    systemSort_icon = tk.PhotoImage(file="icon.png")
 
     root.overrideredirect(True)  # turns off title bar, geometry
     root.geometry('+200+200') # places the window
@@ -19,18 +22,18 @@ def main():
     close_button.pack(side="right")
 
     # test for an icon - not capacity to do it today - coming soon
-    title_test = tk.Label(top_Bar, text='hello there', bg=colorTop, fg="#ffffff")
-    title_test.pack(side="left", padx=25)
+    icon = tk.Label(top_Bar, image=systemSort_icon, bg=colorTop, fg="#ffffff")
+    icon.pack(side="left", padx=10)
 
     # custom title
     title = tk.Label(top_Bar, text='test window', bg=colorTop, fg="#ffffff")
-    title.pack(side="left", padx=25)
+    title.pack(side="left", padx=10)
+
+    # highlightthickness = 0 --> gets rid of ugly border
 
     # new main canvas - size of the new container
-    canvas = tk.Canvas(root, width=500, height=500, bg='blue')
+    canvas = tk.Canvas(root, width=500, height=500, bg='#202020', highlightthickness=0)
     canvas.pack(expand=1, fill='both')
-
-
 
     # bind the top bar so you can move it
     top_Bar.bind('<B1-Motion>', lambda event, arg=root: move_window(event, arg))
