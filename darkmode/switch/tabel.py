@@ -1,8 +1,13 @@
 import sqlite3
 
 def main():
+    """
+    creates a sql file with the table mode
+
+    to toggle between dark-mode and normal mode
+    """
     #f = open("db.sql", "w+")
-    conn = sqlite3.connect("db.sql")
+    conn = sqlite3.connect("mode.sql")
     cur = conn.cursor()
 
     command = "CREATE TABLE mode(mode VARCHAR(10))"
@@ -10,7 +15,10 @@ def main():
     conn.commit()
 
 def add():
-    conn = sqlite3.connect("db.sql")
+    """
+    adds an item to the sql file
+    """
+    conn = sqlite3.connect("mode.sql")
     cur = conn.cursor()
 
     command = "INSERT INTO mode VALUES('nrml')"
@@ -19,11 +27,18 @@ def add():
     conn.commit()
 
 def update():
-    conn = sqlite3.connect("db.sql")
+    """
+    updates the table
+    switch between darkmode -> drkmd
+    and normal ->nrml
+    :return:
+    """
+
+    conn = sqlite3.connect("mode.sql")
     cur = conn.cursor()
 
     mode = "nrml"
-    mode = "drkmd"
+    #mode = "drkmd"
 
     command = f"UPDATE mode SET mode = '{mode}'"
     cur.execute(command)
@@ -32,7 +47,11 @@ def update():
 
 
 def printTable():
-    conn = sqlite3.connect("db.sql")
+    """
+    prints the table for debug
+    :return:
+    """
+    conn = sqlite3.connect("mode.sql")
     cur = conn.cursor()
 
     command = "SELECT * FROM mode"
