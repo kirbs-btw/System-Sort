@@ -1,7 +1,10 @@
 import sqlite3
 
 class colorPal:
-    def __init__(self, main="#ffffff", sec="#ffffff", accent="#ffffff", colLight="#ffffff", colDark="#ffffff", text="#ffffff"):
+    """
+    color pal obj change values for color mode
+    """
+    def __init__(self, main="#ffffff", sec="#ffffff", accent="#ffffff", colLight="#ffffff", colDark="#ffffff", text="#000000"):
         self.main = main
         self.sec = sec
         self.accent = accent
@@ -12,7 +15,12 @@ class colorPal:
 colPal = colorPal()
 
 def main():
-    conn = sqlite3.connect("db.sql")
+    """
+    check for mode in table
+    :return:
+    """
+
+    conn = sqlite3.connect("mode.sql")
     cur = conn.cursor()
 
     command = "SELECT * FROM mode"
